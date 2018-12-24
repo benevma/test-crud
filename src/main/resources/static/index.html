@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+	
+		
+	<script>
+	    var obj = getUtenti();
+	</script>
+	
+		<br></br>
+		<h1>ELENCO UTENTI</h1>
+		<br></br>
+		 <script>	
+		 	if(obj.length>0){
+			 document.write("<table>");
+			 document.write("<tr>");	
+		 	 document.write("<td>Identificativo Utente</td>");
+		 	 document.write("<td>Nome</td>");
+		 	 document.write("<td>Età</td>");
+		 	 document.write("<td></td>");
+			 document.write("</tr>");
+		     var i;
+		 	 for(i=0;i<obj.length;i++){
+			  document.write("<tr>");
+			  document.write("<td>"+obj[i].id+"</td>");
+			  document.write("<td>"+obj[i].nome+"</td>");
+			  document.write("<td>"+obj[i].eta+"&nbsp;&nbsp;&nbsp;<input type='text' value='0' size='3' id='mod"+obj[i].id+"'><a href='/esito.html' onclick='modifica("+obj[i].id+");'>Modifica età</a></td>");
+			  document.write("<td>"+"<a href='/esito.html' onclick='elimina("+obj[i].id+");'>Elimina</a>"+"</td>");
+			  document.write("</tr>");
+		     }
+			document.write("</table>");
+		    }
+		    if(obj.length==0){ 
+			document.write("<h2>NESSUN UTENTE PRESENTE</h2>");
+		    }
+		 </script>
+		
+		<br><br>
+		<a href="/nuovo.html">Aggiungi nuovo</a>
+		
+</body>
+</html>

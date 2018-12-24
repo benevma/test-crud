@@ -1,0 +1,80 @@
+:spring_version: current
+:toc:
+:project_id: gs-rest-service
+:spring_version: current
+:spring_boot_version: 2.0.5.RELEASE
+:icons: font
+:source-highlighter: prettify
+
+==Start the application
+You need maven
+
+From command line, 
+cd C:\....path download from github... ex. C:\gs-rest-service
+
+Configure and run buildmaven.bat 
+
+@echo off
+echo Setting JAVA_HOME
+set JAVA_HOME=C:\Program Files (x86)\IBM\WebSphere\AppServer8.5_1\java_1.8_64  ......path java 1.8
+
+java -version
+mvn clean install
+mvn spring-boot:run
+
+
+==WEB INTERFACE
+http://localhost:8080/index.html
+
+
+== API DOCUMENTATION SWAGGER
+
+After launching Spring boot application, you can get the whole API informations through this swagger link
+
+http://localhost:8080/swagger-ui.html
+
+
+== What you'll build
+
+You'll build a service that will accept HTTP GET requests at:
+
+----
+http://localhost:8080/operazionicrud/select
+----
+
+and respond with JSON representation of output String:
+
+[source,json]
+----
+ex.
+[
+  {
+    "id": 1545639543242,
+    "nome": "Mario",
+    "eta": 22
+  }
+]
+----
+
+You can customize the input with a String for every operation used for query performing (SWAGGER lists all endpoints):
+
+---- ex.
+http://localhost:8080/operazionicrud/insert?eta=45&nome=Prova
+----
+
+
+
+== What you'll need
+:apache-maven-3.5.4
+:java_version: 1.8
+
+dependencies in pom.xml file
+
+:com.jayway.jsonpath
+:org.springframework.boot
+:io.springfox ---> swaggerui
+:javax.ws.rs
+:org.springframework.data  --->jdbc
+
+
+
